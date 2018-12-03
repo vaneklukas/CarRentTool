@@ -1,0 +1,82 @@
+﻿@model CarRentTool.Models.Car
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail vozu</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Km)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Km)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoSeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoSeats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priceDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priceDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priceKm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priceKm)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Úprava vozu", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Přehled", "Index")
+</p>

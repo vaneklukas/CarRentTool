@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CarRentTool.Models.Car>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Přehled vozů</h2>
+
+<p>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Km)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priceDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priceKm)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Km)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priceDay) Kč
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priceKm) Kč
+            </td>
+            <td>
+                @Html.ActionLink("Upravit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Detail", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Vymazat", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -20,6 +20,12 @@ namespace CarRentTool.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Location> Locations { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

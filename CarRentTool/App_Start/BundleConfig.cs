@@ -23,8 +23,25 @@ namespace CarRentTool
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                "~/Content/bootstrap.css",
+                "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Theme/css").Include(
+                "~/Theme/vendor/bootstrap/css/bootstrap.min.css",
+                "~/Theme/vendor/fontawesome-free/css/all.min.css",
+                "~/Theme/vendor/datatables/dataTables.bootstrap4.css",
+                "~/Theme/css/sb-admin.css"));
+
+            bundles.Add(new ScriptBundle("~/Theme/js").Include(
+                "~/Theme/vendor/jquery/jquery.min.js",
+                "~/Theme/vendor/bootstrap/js/bootstrap.bundle.min.js",
+                "~/Theme/vendor/jquery-easing/jquery.easing.min.js",
+                "~/Theme/vendor/chart.js/Chart.min.js",
+                "~/Theme/vendor/datatables/jquery.dataTables.js",
+                "~/Theme/vendor/datatables/dataTables.bootstrap4.js",
+                "~/Theme/js/sb-admin.min.js",
+                "~/Theme/js/demo/datatables-demo.js",
+                "~/Theme/js/demo/chart-area-demo.js"));
         }
     }
 }
