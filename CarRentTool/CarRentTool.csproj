@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201812032107365_carAvailibility.Designer.cs">
       <DependentUpon>201812032107365_carAvailibility.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812032213096_bookingwithcustomer.cs" />
+    <Compile Include="Migrations\201812032213096_bookingwithcustomer.Designer.cs">
+      <DependentUpon>201812032213096_bookingwithcustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AspNetRoles.cs" />
@@ -1758,11 +1762,6 @@
     <Content Include="Views\Locations\Details.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
-    <Content Include="Views\Bookings\Create.cshtml" />
-    <Content Include="Views\Bookings\Delete.cshtml" />
-    <Content Include="Views\Bookings\Details.cshtml" />
-    <Content Include="Views\Bookings\Edit.cshtml" />
-    <Content Include="Views\Bookings\Index.cshtml" />
     <Content Include="Views\Cars\Create.cshtml" />
     <Content Include="Views\Cars\Delete.cshtml" />
     <Content Include="Views\Cars\Details.cshtml" />
@@ -1773,6 +1772,11 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Bookings\Create.cshtml" />
+    <Content Include="Views\Bookings\Delete.cshtml" />
+    <Content Include="Views\Bookings\Details.cshtml" />
+    <Content Include="Views\Bookings\Edit.cshtml" />
+    <Content Include="Views\Bookings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1802,6 +1806,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812032107365_carAvailibility.resx">
       <DependentUpon>201812032107365_carAvailibility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812032213096_bookingwithcustomer.resx">
+      <DependentUpon>201812032213096_bookingwithcustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

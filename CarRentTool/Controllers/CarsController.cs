@@ -49,6 +49,7 @@ namespace CarRentTool.Controllers
         {
             if (ModelState.IsValid)
             {
+                car.Availible = 1;
                 db.Cars.Add(car);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -5,10 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Přehled vozů</h2>
+<h2>Přehled volných vozů</h2>
 
-<p>
-</p>
 <table class="table">
     <tr>
         <th>
@@ -65,9 +63,8 @@
                 @Html.DisplayFor(modelItem => item.priceKm) Kč
             </td>
             <td>
-                @Html.ActionLink("Upravit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Detail", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Vymazat", "Delete", new { id = item.ID })
+                @Html.ActionLink("Rezervovat", "Create", new { id = item.ID }) 
+               
             </td>
         </tr>
     }

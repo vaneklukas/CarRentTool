@@ -14,13 +14,11 @@ namespace CarRentTool.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Bookings
+        // GET: Free cars
         public ActionResult Index()
         {
-            //    var bookings = db.Bookings.Include(b => b.Car).Include(b => b.Customer);
-            //    return View(bookings.ToList());
-            var cars = db.Cars.Include(c => c.Location);
-            return View(cars.ToList());
+            var bookings = db.Cars.Where(c=>c.Availible==1).Include(b => b.Location);
+            return View(bookings);
         }
 
         // GET: Bookings/Details/5
@@ -42,7 +40,6 @@ namespace CarRentTool.Controllers
         public ActionResult Create()
         {
             ViewBag.CarId = new SelectList(db.Cars, "ID", "Manufacturer");
-            ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name");
             return View();
         }
 
@@ -51,17 +48,19 @@ namespace CarRentTool.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FromDate,ToDate,CustomerId,CarId")] Booking booking)
+        public ActionResult Create(int id,[Bind(Include = "Id,FromDate,ToDate,Name,Surname,Adress,City,PSC,Phone,Email,DrivingLicenceNo,PersonalCard")] Booking booking)
         {
             if (ModelState.IsValid)
             {
+                booking.CarId = id;
+                var carstatus = db.Cars.First(c => c.ID == id);
+                carstatus.Availible = 0;
                 db.Bookings.Add(booking);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.CarId = new SelectList(db.Cars, "ID", "Manufacturer", booking.CarId);
-            ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", booking.CustomerId);
             return View(booking);
         }
 
@@ -78,7 +77,6 @@ namespace CarRentTool.Controllers
                 return HttpNotFound();
             }
             ViewBag.CarId = new SelectList(db.Cars, "ID", "Manufacturer", booking.CarId);
-            ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", booking.CustomerId);
             return View(booking);
         }
 
@@ -87,7 +85,7 @@ namespace CarRentTool.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FromDate,ToDate,CustomerId,CarId")] Booking booking)
+        public ActionResult Edit([Bind(Include = "Id,FromDate,ToDate,Name,Surname,Adress,City,PSC,Phone,Email,DrivingLicenceNo,PersonalCard,CarId")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +94,6 @@ namespace CarRentTool.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.CarId = new SelectList(db.Cars, "ID", "Manufacturer", booking.CarId);
-            ViewBag.CustomerId = new SelectList(db.Customers, "Id", "Name", booking.CustomerId);
             return View(booking);
         }
 
